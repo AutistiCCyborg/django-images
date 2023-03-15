@@ -1,4 +1,5 @@
 from django.db import models
+from web3auth.models import Web3UserMixin
 
 
 class Image(models.Model):
@@ -6,6 +7,10 @@ class Image(models.Model):
     file = models.ImageField(upload_to='images/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
+class CustomUser(Web3UserMixin, models.Model):
+    # Add any additional fields or methods here
+    pass
+    
     class Meta:
         ordering = ['-uploaded_at']
 

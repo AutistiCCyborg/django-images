@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'images.apps.ImagesConfig',
     'django_tables2',
     'crispy_forms',
+    'web3auth'
+]
+
+WEB3AUTH = [
+    'SIGNATURE_VERIFICATION': True,  # Enable signature verification
+    'INFURA_API_KEY': '<YOUR_INFURA_API_KEY>',  # Replace with your Infura API key
+    'RPC_URL': 'https://mainnet.infura.io/v3/{INFURA_API_KEY}',  # Use Infura as the RPC provider
 ]
 
 MIDDLEWARE = [
@@ -69,6 +76,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+
+AUTH_USER_MODEL = 'yourapp.CustomUser'
 
 
 # Database
