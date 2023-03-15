@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'web3auth'
 ]
 
-WEB3AUTH = [
+WEB3AUTH = {
     'SIGNATURE_VERIFICATION': True,  # Enable signature verification
     'INFURA_API_KEY': '<YOUR_INFURA_API_KEY>',  # Replace with your Infura API key
     'RPC_URL': 'https://mainnet.infura.io/v3/{INFURA_API_KEY}',  # Use Infura as the RPC provider
-]
+}
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
