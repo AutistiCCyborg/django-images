@@ -3,25 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Unique Key</title>
+    <title>Wallet</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
 </head>
 <body>
-    <button id="generate-key-button">Generate Key</button>
-    <p id="key-display"></p>
+    <h1>Wallet</h1>
+    <button id="link-wallet">Link Wallet</button>
+    <button id="auth-wallet">Auth Wallet</button>
+    <button id="get-key">Get Key</button>
 
     <script>
-        document.getElementById("generate-key-button").onclick = function() {
-            fetch("https://advocate.codes/generate_key", {
-                method: "POST",
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("key-display").textContent = data.key;
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
+        let web3;
+        let userAddress;
+
+        async function loadWeb3() {
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                await window.ethereum.enable();
+                web3 = window.web3;
+                userAddress = web3.eth.defaultAccount;
+            } else {
+                alert('Please install MetaMask or another Web3 wallet to use this DAPP.');
+            }
         }
+
+        document.getElementById("link-wallet").onclick = async () => {
+            await loadWeb3();
+            alert("Wallet linked: " + userAddress);
+        };
+
+        document.getElementById("auth-wallet").onclick = async () => {
+            // Implement your authentication logic here
+            alert("Wallet authentication is not implemented yet.");
+        };
+
+        document.getElementById("get-key").onclick = async () => {
+            // Implement your key retrieval logic here
+            alert("Key retrieval is not implemented yet.");
+        };
     </script>
 </body>
 </html>
