@@ -1,6 +1,6 @@
 from django.db import models
 from web3auth.models import Web3UserMixin
-
+from web3 import Web3
 
 class Image(models.Model):
     title = models.CharField(max_length=128)
